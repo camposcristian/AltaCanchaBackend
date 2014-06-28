@@ -1,9 +1,11 @@
-﻿using Facebook;
+﻿using AltaCancha.Models;
+using Facebook;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using Microsoft.AspNet.Identity;
 using System.Web.Http;
 
 namespace AltaCancha.Controllers
@@ -11,14 +13,39 @@ namespace AltaCancha.Controllers
     public class FriendController : ApiController
     {
         // GET: api/Friends
-        public IEnumerable<string> Get()
+        public IDictionary<string, object> Get()
         {
-            var accessToken = "CAACEdEose0cBAEMrhL35VPGz5qYYGeGXkhTRGiPayK1ZCc4xLQsKuKJihDL6FGflUTx7HWitvCZBrOFKNYAttIIgDh8rH6IdJlS9Ka1rvr1SWW7dT61o2NCR4Als0lR8e0T3lVEy6Hwgw0JeH0NHOdta8I0ZB4HFj8ZBh56IJnG0op7SQXfiqPCffORuDoGls2nZCKPSv8gZDZD";
-            var client = new FacebookClient(accessToken);
-            dynamic me = client.Get("me");
-            string aboutMe = me.about;
-            dynamic result = client.Get("me", new { fields = "name,id" });
-            return new string[] { me };
+            using (var db = new ApplicationDbContext())
+            {
+                //ApplicationUser user = db.Users.FirstOrDefault(u => u.Id == User.Identity.GetUserId());
+                //var accessToken = user.FbToken;
+                var accessToken = "CAAHWLwX0jdcBAAKhcnH0uImDIW3dW7SZAramnuVy3ZBG8qbsdBBjpi9jJwBtTNrbwkiedUN4ICiP8tOdl2AdWMvogcSX5mr7f6kgY31RPU8vZB2qJfiHSpZAZBWgXen4KPH7bDzWDKnfv4ZAO8yxdZBVBIoNGyudJGgxyC9s8kEWHG0NRQ1ZBZBHYfveAZAJFxCkhEuwcp2QwAjgZDZD";
+                var token = GetExtendedAccessToken(accessToken);
+                var client = new FacebookClient(token);
+                return client.Get("me/friends?fields=picture.type(normal),first_name,birthday,last_name") as IDictionary<string, object>;
+            }
+
+        }
+        private string GetExtendedAccessToken(string ShortLivedToken)
+        {
+            FacebookClient client = new FacebookClient();
+            string extendedToken = "";
+            try
+            {
+                dynamic result = client.Get("/oauth/access_token", new
+                {
+                    grant_type = "fb_exchange_token",
+                    client_id = "516972428430807",
+                    client_secret = "b3ddcb3388562413d2e8bcd3846c8187",
+                    fb_exchange_token = ShortLivedToken
+                });
+                extendedToken = result.access_token;
+            }
+            catch
+            {
+                extendedToken = ShortLivedToken;
+            }
+            return extendedToken;
         }
 
         // GET: api/Friends/5
