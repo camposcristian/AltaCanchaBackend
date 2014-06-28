@@ -54,9 +54,9 @@ namespace AltaCancha
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //    appId: "516972428430807",
-            //    appSecret: "b3ddcb3388562413d2e8bcd3846c8187");
+            app.UseFacebookAuthentication(
+                appId: "516972428430807",
+                appSecret: "b3ddcb3388562413d2e8bcd3846c8187");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
