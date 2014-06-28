@@ -39,6 +39,7 @@ namespace AltaCancha.Models
         public DbSet<SizeType> Type { get; set; }
         public DbSet<OpenTime> OpenTimes { get; set; }
         public DbSet<State> State { get; set; }
+        public DbSet<Match> Match { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
