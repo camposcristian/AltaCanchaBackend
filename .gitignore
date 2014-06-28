@@ -156,3 +156,5 @@ $RECYCLE.BIN/
 .DS_Store
 *.dll
 packages/
+*.mdf
+AltaCancha/App_Data/aspnet-AltaCancha-20140628112149_log.ldf
