@@ -18,9 +18,9 @@ namespace AltaCancha.Models
         public string State { get; set; }
         public string Country { get; set; }
         public double Rating { get; set; }
-        public List<Photos> Photos { get; set; }
-        public List<Court> Courts { get; set; }
-        public List<Amenity> Amenities { get; set; }
-        public List<OpenTime> OpenTimes { get; set; }
+        public virtual List<Photos> Photos { get; set; }
+        public virtual List<Court> Courts { get; set; }
+        public virtual List<Amenity> Amenities { get; set; }
+        public virtual List<OpenTime> OpenTimes { get; set; }
     }
 }

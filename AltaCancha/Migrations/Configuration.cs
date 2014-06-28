@@ -170,7 +170,7 @@ namespace AltaCancha.Migrations
                 State = "Ciudad Autonoma de Buenos Aires",
                 Country = "Argentina",
                 Rating = 5,
-                Courts = new List<Court> { court3, court4 , court5, court6},
+                Courts = new List<Court> { court5, court7},
                 Amenities = new List<Amenity> { amenity1,amenity2, amenity3 },
                 OpenTimes = new List<OpenTime> { time0, time1, time2, time3, time4, time5, time6 },
                 Photos = new List<Photos> { }
@@ -189,7 +189,7 @@ namespace AltaCancha.Migrations
                 State = "Ciudad Autonoma de Buenos Aires",
                 Country = "Argentina",
                 Rating = 2.1,
-                Courts = new List<Court> { court8, court9, court7 },
+                Courts = new List<Court> { court8, court9},
                 Amenities = new List<Amenity> { amenity3 },
                 OpenTimes = new List<OpenTime> { time0, time1, time2, time3, time4, time5, time6 },
                 Photos = new List<Photos> { }

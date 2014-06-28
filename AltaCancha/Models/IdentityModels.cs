@@ -31,6 +31,7 @@ namespace AltaCancha.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
         public DbSet<Club> Clubs { get; set; }
         public DbSet<Court> Courts { get; set; }
         public DbSet<Booking> Bookings { get; set; }
@@ -44,6 +45,7 @@ namespace AltaCancha.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Configuration.LazyLoadingEnabled = false;
         }
         
         public static ApplicationDbContext Create()
