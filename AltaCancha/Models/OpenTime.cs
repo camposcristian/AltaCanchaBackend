@@ -8,9 +8,9 @@ namespace AltaCancha.Models
     public class OpenTime
     {
         public int Id { get; set; }
-        public DayOfWeek DayOfWeek { get; set; }
-        public DateTime TimeIn { get; set; }
-        public DateTime TimeOut { get; set; }
+        public string DayOfWeek { get; set; }
+        public string TimeIn { get; set; }
+        public string TimeOut { get; set; }
 
     }
 }

@@ -17,7 +17,7 @@ namespace AltaCancha.Models
         public string Zone { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
-        public float Rating { get; set; }
+        public double Rating { get; set; }
         public List<Photos> Photos { get; set; }
         public List<Court> Courts { get; set; }
         public List<Amenity> Amenities { get; set; }
