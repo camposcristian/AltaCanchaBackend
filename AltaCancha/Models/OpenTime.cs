@@ -12,5 +12,6 @@ namespace AltaCancha.Models
         public string TimeIn { get; set; }
         public string TimeOut { get; set; }
 
+
     }
 }

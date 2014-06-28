@@ -20,9 +20,10 @@ namespace AltaCancha.Controllers
         public IHttpActionResult GetClubs(string name = null)
         {
             if(name == null)
-                return Ok(db.Clubs);
+                
+                return Ok(db.Clubs.Include("OpenTimes").Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").ToList());
 
-            IQueryable<Club> clubs = db.Clubs.Include(c => c.OpenTimes).Include(c => c.Courts).Include(c => c.Amenities).Include(c => c.Photos).Where(c => c.Name.Contains(name));
+            var clubs = db.Clubs.Include(c => c.OpenTimes).Include(c => c.Amenities).Include("Courts.FloorType").Include("Courts.Type").Where(c => c.Name.Contains(name)).ToList();
 
             if (clubs == null)
             {
