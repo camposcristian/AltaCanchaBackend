@@ -13,7 +13,7 @@ namespace AltaCancha.Models
         public double Price { get; set; }
         public FloorType FloorType { get; set; }
         public SizeType Type { get; set; }
-        public List<Photos> Photos { get; set; }
+        public virtual List<Photos> Photos { get; set; }
 
     }
 }
