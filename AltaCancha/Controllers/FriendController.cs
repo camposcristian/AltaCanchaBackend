@@ -17,9 +17,8 @@ namespace AltaCancha.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                //ApplicationUser user = db.Users.FirstOrDefault(u => u.Id == User.Identity.GetUserId());
-                //var accessToken = user.FbToken;
-                var accessToken = "CAAHWLwX0jdcBAAKhcnH0uImDIW3dW7SZAramnuVy3ZBG8qbsdBBjpi9jJwBtTNrbwkiedUN4ICiP8tOdl2AdWMvogcSX5mr7f6kgY31RPU8vZB2qJfiHSpZAZBWgXen4KPH7bDzWDKnfv4ZAO8yxdZBVBIoNGyudJGgxyC9s8kEWHG0NRQ1ZBZBHYfveAZAJFxCkhEuwcp2QwAjgZDZD";
+                ApplicationUser user = db.Users.FirstOrDefault(u => u.Id == User.Identity.GetUserId());
+                var accessToken = user.FbToken;
                 var token = GetExtendedAccessToken(accessToken);
                 var client = new FacebookClient(token);
                 return client.Get("me/friends?fields=picture.type(normal),first_name,birthday,last_name") as IDictionary<string, object>;
