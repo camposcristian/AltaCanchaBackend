@@ -227,13 +227,13 @@ namespace AltaCancha.Migrations
             var club4 = new Club
             {
                 Id = 4,
-                Name = "Open Gallo",
-                Address = "Gallo 241",
+                Name = "Open Barracas",
+                Address = "Barracas 241",
                 Phone = "4862-9392/ 9386/ 4865-4057",
                 Email = "",
-                Latitude = -34.605943,
-                Length = -58.414114,
-                Zone = "Almagro",
+                Latitude = -34.655133,
+                Length = -58.376949,
+                Zone = "Barracas",
                 State = "Ciudad Autonoma de Buenos Aires",
                 Country = "Argentina",
                 Rating = 2.1,

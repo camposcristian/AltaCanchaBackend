@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Device.Location;
 using System.Linq;
 using System.Web;
 
@@ -23,5 +24,14 @@ namespace AltaCancha.Models
         public virtual List<Court> Courts { get; set; }
                 public virtual List<Amenity> Amenities { get; set; }
         public virtual List<OpenTime> OpenTimes { get; set; }
+
+        public virtual double EsMenorQueDosKm(double latitude, double length)
+        {
+            var sCoord = new GeoCoordinate(latitude, length);
+            var eCoord = new GeoCoordinate(this.Latitude, this.Length);
+
+            return sCoord.GetDistanceTo(eCoord);
+        }
+
     }
 }
