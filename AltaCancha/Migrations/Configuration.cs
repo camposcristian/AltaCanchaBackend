@@ -38,11 +38,11 @@ namespace AltaCancha.Migrations
             var amenity3 = new Amenity { Id = 3, Name = "Vestuarios"};
 
             context.Amenities.AddOrUpdate(
-    p => p.Id,
-    amenity1,
-    amenity2,
-    amenity3
-    );
+            p => p.Id,
+            amenity1,
+            amenity2,
+            amenity3
+            );
 
 
 
@@ -139,17 +139,60 @@ namespace AltaCancha.Migrations
                 time63
                 );
 
+            /**** SCHEDULE ***/
+
+            var schedule1 = new List<DateTime>();
+            schedule1.Add(new DateTime(2014, 6, 30, 15, 0, 0));
+            schedule1.Add(new DateTime(2014, 6, 30, 17, 0, 0));
+            schedule1.Add(new DateTime(2014, 6, 30, 18, 0, 0));
+
+            var schedule2 = new List<DateTime>();
+            schedule2.Add(new DateTime(2014, 6, 30, 11, 0, 0));
+            schedule2.Add(new DateTime(2014, 6, 30, 12, 0, 0));
+            schedule2.Add(new DateTime(2014, 6, 30, 15, 0, 0));
+
+            var schedule3 = new List<DateTime>();
+            schedule3.Add(new DateTime(2014, 6, 30, 15, 0, 0));
+    
+
+            var schedule4 = new List<DateTime>();
+            schedule4.Add(new DateTime(2014, 6, 30, 17, 0, 0));
+            schedule4.Add(new DateTime(2014, 6, 30, 18, 0, 0));
+
+            var schedule5 = new List<DateTime>();
+            schedule5.Add(new DateTime(2014, 6, 30, 15, 0, 0));
+            schedule5.Add(new DateTime(2014, 6, 30, 18, 0, 0));
+
+            var schedule6 = new List<DateTime>();
+            schedule6.Add(new DateTime(2014, 6, 30, 11, 0, 0));
+            schedule6.Add(new DateTime(2014, 6, 30, 12, 0, 0));
+            schedule6.Add(new DateTime(2014, 6, 30, 14, 0, 0));
+
+            var schedule7 = new List<DateTime>();
+            schedule7.Add(new DateTime(2014, 6, 30, 18, 0, 0));
+            schedule7.Add(new DateTime(2014, 6, 30, 19, 0, 0));
+   
+
+            var schedule8 = new List<DateTime>();
+            schedule8.Add(new DateTime(2014, 6, 30, 17, 0, 0));
+            schedule8.Add(new DateTime(2014, 6, 30, 18, 0, 0));
+            schedule8.Add(new DateTime(2014, 6, 30, 19, 0, 0));
+
+            var schedule9 = new List<DateTime>();
+            schedule9.Add(new DateTime(2014, 6, 30, 20, 0, 0));
+            schedule9.Add(new DateTime(2014, 6, 30, 21, 0, 0));
+
             /******* COURTS  *********/
 
-            var court1 = new Court { Id = 1, Name = "Cancha 1", Description = "Primera Cancha del complejo", Price = 350, FloorType = floor1, Type = size1, Photos = new List<Photos> { } };
-            var court2 = new Court { Id = 2, Name = "Cancha 2", Description = "Segunda Cancha del complejo", Price = 400, FloorType = floor2, Type = size2, Photos = new List<Photos> { } };
-            var court3 = new Court { Id = 3, Name = "Cancha Swing", Description = "Buena cancha para f5", Price = 450, FloorType = floor3, Type = size1, Photos = new List<Photos> { } };
-            var court4 = new Court { Id = 4, Name = "Cancha Grande", Description = "Otra cancha para f5", Price = 400, FloorType = floor3, Type = size1, Photos = new List<Photos> { } };
-            var court5 = new Court { Id = 5, Name = "Cancha para 11", Description = "Cancha profesional", Price = 1000, FloorType = floor1, Type = size3, Photos = new List<Photos> { } };
-            var court6 = new Court { Id = 6, Name = "Cancha 1", Description = "Primera Cancha", Price = 500, FloorType = floor2, Type = size2, Photos = new List<Photos> { } };
-            var court7 = new Court { Id = 7, Name = "Cancha 2", Description = "Segunda Cancha", Price = 450, FloorType = floor2, Type = size1, Photos = new List<Photos> { } };
-            var court8 = new Court { Id = 8, Name = "Cancha 3", Description = "Tercera Cancha", Price = 400, FloorType = floor1, Type = size1, Photos = new List<Photos> { } };
-            var court9 = new Court { Id = 9, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, Type = size2, Photos = new List<Photos> { } };
+            var court1 = new Court { Id = 1, Name = "Cancha 1", Description = "Primera Cancha del complejo", Price = 350, FloorType = floor1,ScheduledMatches = schedule1, Type = size1, Photos = new List<Photos> { } };
+            var court2 = new Court { Id = 2, Name = "Cancha 2", Description = "Segunda Cancha del complejo", Price = 400, FloorType = floor2, ScheduledMatches = schedule2, Type = size2, Photos = new List<Photos> { } };
+            var court3 = new Court { Id = 3, Name = "Cancha Swing", Description = "Buena cancha para f5", Price = 450, FloorType = floor3, ScheduledMatches = schedule3, Type = size1, Photos = new List<Photos> { } };
+            var court4 = new Court { Id = 4, Name = "Cancha Grande", Description = "Otra cancha para f5", Price = 400, FloorType = floor3, ScheduledMatches = schedule4, Type = size1, Photos = new List<Photos> { } };
+            var court5 = new Court { Id = 5, Name = "Cancha para 11", Description = "Cancha profesional", Price = 1000, FloorType = floor1, ScheduledMatches = schedule5, Type = size3, Photos = new List<Photos> { } };
+            var court6 = new Court { Id = 6, Name = "Cancha 1", Description = "Primera Cancha", Price = 500, FloorType = floor2, ScheduledMatches = schedule6, Type = size2, Photos = new List<Photos> { } };
+            var court7 = new Court { Id = 7, Name = "Cancha 2", Description = "Segunda Cancha", Price = 450, FloorType = floor2, ScheduledMatches = schedule7, Type = size1, Photos = new List<Photos> { } };
+            var court8 = new Court { Id = 8, Name = "Cancha 3", Description = "Tercera Cancha", Price = 400, FloorType = floor1, ScheduledMatches = schedule8, Type = size1, Photos = new List<Photos> { } };
+            var court9 = new Court { Id = 9, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule9, Type = size2, Photos = new List<Photos> { } };
 
             context.Courts.AddOrUpdate(
                 p => p.Id,
