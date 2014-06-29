@@ -166,23 +166,23 @@ namespace AltaCancha.Migrations
 
 
             /***** PHOTOS *****/
-            var headerPh1 = new Photos { Id = 1, Src = "https://dl.dropboxusercontent.com/content_link/ElxfWd5TZEJafX2FAw2hzUrfEFjWF7MVhQBSagW0OHSJRBo1KKlg1CgcV1ExLfIu", Description = "Header Photo from Serrano Corner" };
-            var headerPh2 = new Photos { Id = 2, Src = "https://dl.dropboxusercontent.com/content_link/wDwqr8BaNWQAwBUrRxyDR7q2e4Unk6hSzVKiTx1nEDqMkpXpyDLgGn1Vp1SqIe46", Description = "Header Photo from Bethania" };
-            var headerPh3 = new Photos { Id = 3, Src = "https://dl.dropboxusercontent.com/content_link/r47iPm61e3kqpFHR9o24nUIn248llFjitoRKjpO0tehM1BN9hCInIzBpVLYyS4pY", Description = "Header Photo from Madero" };
-            var headerPh4 = new Photos { Id = 4, Src = "https://dl.dropboxusercontent.com/content_link/4gJpWBbULblHmB4LnENoyICuUgU1Fk3JBYQU6iTa8gM8nJZIA68QXF5Ah7RSbTKm", Description = "Header Photo from Barracas" };
+            var headerPh1 = new Photos { Id = 1, Src = "http://i.imgur.com/ifFj23S.jpg", Description = "Header Photo from Serrano Corner" };
+            var headerPh2 = new Photos { Id = 2, Src = "http://i.imgur.com/vvlqJg0.jpg", Description = "Header Photo from Bethania" };
+            var headerPh3 = new Photos { Id = 3, Src = "http://i.imgur.com/xdk0cbw.jpg", Description = "Header Photo from Madero" };
+            var headerPh4 = new Photos { Id = 4, Src = "http://i.imgur.com/rb2wxcR.jpg", Description = "Header Photo from Barracas" };
 
-            var photo1 = new Photos { Id = 5, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-c-3.jpg?_subject_uid=52053331&w=AAASqvHt1jLQLtm0-d03_b-EboZo9mWey-3wVX1aZ66ofg", Description = "Photo 5" };
-            var photo2 = new Photos { Id = 6, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-c-2.jpg?_subject_uid=52053331&w=AADwbvbLl6cqLWdMKg473pn5inzqF9WOWoiwWYhpQikr8Q", Description = "Photo 6" };
-            var photo3 = new Photos { Id = 7, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-c-1.jpg?_subject_uid=52053331&w=AACmFpoREhPEkWicEIeRhSFqe6alPo8g0-KID_llE5ADFA", Description = "Photo 7" };
-            var photo4 = new Photos { Id = 8, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-2-thumb-c-2.jpg?_subject_uid=52053331&w=AADbhTSRkG_oC0GQFqBdNg7nPfliUHiqQZVYENAApHwf0A", Description = "Photo 8" };
-            var photo5 = new Photos { Id = 9, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-3-thumb-c-1.jpg?_subject_uid=52053331&w=AACmdVrcouq-liKaeWo3IW89Aki4JUF0QTpLcYiRFjvxpA", Description = "Photo 9" };
-            var photo6 = new Photos { Id = 10, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-3-thumb-c-2.jpg?_subject_uid=52053331&w=AABD9C1dfhEv90Y8mbIZ9v8_ybgW6qthMALT-gmJKr9tDQ", Description = "Photo 10" };
-            var photo7 = new Photos { Id = 11, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-4-thumb-c-2.jpg?_subject_uid=52053331&w=AACss1e8vZYoEDlWjKUZSrxWEpf47RI7x8_2oHv_3saPyA", Description = "Photo 11" };
-            var photo8 = new Photos { Id = 12, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-5-thumb-c-1.jpg?_subject_uid=52053331&w=AAAnnSbEFzDMNo13asFrFcxQsyXIA_T_jk7ts4Eer7emDA", Description = "Photo 12" };
-            var photo9 = new Photos { Id = 13, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-5-thumb-c-2.jpg?_subject_uid=52053331&w=AABjR6Bo2zOUBeg8TWtP7BIAQFX7N2LurDmrHz6w8D-aEA", Description = "Photo 13" };
-            var photo10 = new Photos { Id = 14, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-6-thumb-c-1.jpg?_subject_uid=52053331&w=AAC8YxzlOc08fWmqF_oJB3AlkoZbGDqgr3wrt_YUkK1BpQ", Description = "Photo 14" };
-            var photo11 = new Photos { Id = 15, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-6-thumb-c-2.jpg?_subject_uid=52053331&w=AAB9M4wr4vbHQbwC-FmJu2fsRxtagFBLsHClZ8mw6fYgfg", Description = "Photo 15" };
-            var photo12 = new Photos { Id = 16, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-7-thumb-c-1.jpg?_subject_uid=52053331&w=AADlgCF9HEV5ffOaX2owrsD2vwHgjvLQDcleXZjiglHJVQ", Description = "Photo 16" };
+            var photo1 = new Photos { Id = 5, Src = "http://i.imgur.com/rG0ffMj.jpg", Description = "Photo 5" };
+            var photo2 = new Photos { Id = 6, Src = "http://i.imgur.com/9wLLibs.jpg", Description = "Photo 6" };
+            var photo3 = new Photos { Id = 7, Src = "http://i.imgur.com/hcnkBNL.jpg", Description = "Photo 7" };
+            var photo4 = new Photos { Id = 8, Src = "http://i.imgur.com/tj2WUtU.jpg", Description = "Photo 8" };
+            var photo5 = new Photos { Id = 9, Src = "http://i.imgur.com/wMtbPzt.jpg", Description = "Photo 9" };
+            var photo6 = new Photos { Id = 10, Src = "http://i.imgur.com/j8Kqwur.jpg", Description = "Photo 10" };
+            var photo7 = new Photos { Id = 11, Src = "http://i.imgur.com/ws2AbJs.jpg", Description = "Photo 11" };
+            var photo8 = new Photos { Id = 12, Src = "http://i.imgur.com/WH1Kf2M.jpg", Description = "Photo 12" };
+            var photo9 = new Photos { Id = 13, Src = "http://i.imgur.com/kzCHvjw.jpg", Description = "Photo 13" };
+            var photo10 = new Photos { Id = 14, Src = "http://i.imgur.com/CGb1Nx9.jpg", Description = "Photo 14" };
+            var photo11 = new Photos { Id = 15, Src = "http://i.imgur.com/8dDTh6H.jpg", Description = "Photo 15" };
+            var photo12 = new Photos { Id = 16, Src = "http://i.imgur.com/mxqZTW1.jpg", Description = "Photo 16" };
 
 
             /******* CLUBS  *********/
