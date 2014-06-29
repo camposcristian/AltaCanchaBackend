@@ -23,6 +23,7 @@ namespace AltaCancha.Controllers
             {
                 return StatusCode(HttpStatusCode.Unauthorized);
             }
+
             else
             {
                 using (var db = new ApplicationDbContext())
