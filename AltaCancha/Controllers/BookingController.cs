@@ -80,6 +80,10 @@ namespace AltaCancha.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (!User.Identity.IsAuthenticated)
+            {
+                return StatusCode(HttpStatusCode.Unauthorized);
+            }
 
             var players = new List<Player>();
             var selfUser = db.Users.Find(User.Identity.GetUserId());
