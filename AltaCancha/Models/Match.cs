@@ -8,8 +8,9 @@ namespace AltaCancha.Models
     public class Match
     {
         public int Id { get; set; }
-        public string GroupName { get; set; }
-        public Booking Book { get; set; }
-        public List<ApplicationUser> Players { get; set; }
+        public Court Court { get; set; }
+        public DateTime DateTimeIn { get; set; }
+        public DateTime DateTimeOut { get; set; }
+        public List<Player> Players { get; set; }
     }
 }

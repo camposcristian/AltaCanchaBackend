@@ -14,7 +14,7 @@ namespace AltaCancha.Models
     {
         public string FbId { get; set; }
         public string FbToken { get; set; }
-        public List<Booking> Bookings { get; set; }
+        public List<Match> Matches { get; set; }
         public DateTime CreateDate { get; set; }
         public  DateTime ModDate{ get; set; }
         public bool isActive { get; set; }
