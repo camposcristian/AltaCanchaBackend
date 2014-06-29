@@ -21,7 +21,7 @@ namespace AltaCancha.Models
         public string Position { get; set; }
         public string GameStyle { get; set; }
         [Column(TypeName = "DateTime2")]
-        public  DateTime ModDate{ get; set; }
+        public DateTime ModDate { get; set; }
         public bool isActive { get; set; }
         public ApplicationUser()
         {
@@ -58,7 +58,7 @@ namespace AltaCancha.Models
         {
             //Configuration.LazyLoadingEnabled = false;
         }
-        
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -66,8 +66,10 @@ namespace AltaCancha.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<ApplicationUser>().HasMany(t => t.Matches);
+            //modelBuilder.Entity<Match>().HasMany(t => t.Players);
             base.OnModelCreating(modelBuilder);
-            
+
         }
     }
 }

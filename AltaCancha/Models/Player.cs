@@ -8,6 +8,7 @@ namespace AltaCancha.Models
     public class Player
     {
         public int Id { get; set; }
+        public string UserId { get; set; }
         public ApplicationUser User { get; set; }
         public State State { get; set; }
     }

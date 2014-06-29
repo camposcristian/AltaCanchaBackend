@@ -141,7 +141,7 @@ namespace AltaCancha.Controllers
 
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = newBook.Id }, booking);
+            return CreatedAtRoute("DefaultApi", new { id = newBook.Id }, newBook);
         }
 
         // DELETE api/Booking/5
