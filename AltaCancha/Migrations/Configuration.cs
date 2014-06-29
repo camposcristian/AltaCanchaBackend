@@ -164,6 +164,27 @@ namespace AltaCancha.Migrations
                 court9
                 );
 
+
+            /***** PHOTOS *****/
+            var headerPh1 = new Photos { Id = 1, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-1.jpg?_subject_uid=52053331&w=AAB0H26V-Yq-BGUq4tgSnbx3r8Kb8gNkgSt9rTYrbrD-vQ", Description = "Header Photo from Serrano Corner" };
+            var headerPh2 = new Photos { Id = 2, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-3-thumb-1.jpg?_subject_uid=52053331&w=AAA5sIwn_8EguiQYrzdqFfn2MUyFGK5b_NM_vDc7ZKHMOA", Description = "Header Photo from Bethania" };
+            var headerPh3 = new Photos { Id = 3, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-5-thumb-1.jpg?_subject_uid=52053331&w=AAALRWb1OaV3Rm2TNuvbu68PAOSHEQZHCPe3B2oUVnugJw", Description = "Header Photo from Madero" };
+            var headerPh4 = new Photos { Id = 4, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-7-thumb-1.jpg?_subject_uid=52053331&w=AABf8W2MHbJu9_T4S1yE8tw3UX0f5Zi4U7qaCSb6uofpNA", Description = "Header Photo from Barracas" };
+
+            var photo1 = new Photos { Id = 5, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-c-3.jpg?_subject_uid=52053331&w=AAASqvHt1jLQLtm0-d03_b-EboZo9mWey-3wVX1aZ66ofg", Description = "Photo 5" };
+            var photo2 = new Photos { Id = 6, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-c-2.jpg?_subject_uid=52053331&w=AADwbvbLl6cqLWdMKg473pn5inzqF9WOWoiwWYhpQikr8Q", Description = "Photo 6" };
+            var photo3 = new Photos { Id = 7, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-1-thumb-c-1.jpg?_subject_uid=52053331&w=AACmFpoREhPEkWicEIeRhSFqe6alPo8g0-KID_llE5ADFA", Description = "Photo 7" };
+            var photo4 = new Photos { Id = 8, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-2-thumb-c-2.jpg?_subject_uid=52053331&w=AADbhTSRkG_oC0GQFqBdNg7nPfliUHiqQZVYENAApHwf0A", Description = "Photo 8" };
+            var photo5 = new Photos { Id = 9, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-3-thumb-c-1.jpg?_subject_uid=52053331&w=AACmdVrcouq-liKaeWo3IW89Aki4JUF0QTpLcYiRFjvxpA", Description = "Photo 9" };
+            var photo6 = new Photos { Id = 10, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-3-thumb-c-2.jpg?_subject_uid=52053331&w=AABD9C1dfhEv90Y8mbIZ9v8_ybgW6qthMALT-gmJKr9tDQ", Description = "Photo 10" };
+            var photo7 = new Photos { Id = 11, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-4-thumb-c-2.jpg?_subject_uid=52053331&w=AACss1e8vZYoEDlWjKUZSrxWEpf47RI7x8_2oHv_3saPyA", Description = "Photo 11" };
+            var photo8 = new Photos { Id = 12, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-5-thumb-c-1.jpg?_subject_uid=52053331&w=AAAnnSbEFzDMNo13asFrFcxQsyXIA_T_jk7ts4Eer7emDA", Description = "Photo 12" };
+            var photo9 = new Photos { Id = 13, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-5-thumb-c-2.jpg?_subject_uid=52053331&w=AABjR6Bo2zOUBeg8TWtP7BIAQFX7N2LurDmrHz6w8D-aEA", Description = "Photo 13" };
+            var photo10 = new Photos { Id = 14, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-6-thumb-c-1.jpg?_subject_uid=52053331&w=AAC8YxzlOc08fWmqF_oJB3AlkoZbGDqgr3wrt_YUkK1BpQ", Description = "Photo 14" };
+            var photo11 = new Photos { Id = 15, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-6-thumb-c-2.jpg?_subject_uid=52053331&w=AAB9M4wr4vbHQbwC-FmJu2fsRxtagFBLsHClZ8mw6fYgfg", Description = "Photo 15" };
+            var photo12 = new Photos { Id = 16, Src = "https://dl-web.dropbox.com/get/Alta%20Cancha/canchas/cancha-7-thumb-c-1.jpg?_subject_uid=52053331&w=AADlgCF9HEV5ffOaX2owrsD2vwHgjvLQDcleXZjiglHJVQ", Description = "Photo 16" };
+
+
             /******* CLUBS  *********/
             var club1 = new Club
                 {
@@ -181,7 +202,8 @@ namespace AltaCancha.Migrations
                     Courts = new List<Court> { court1, court2, court3 },
                     Amenities = new List<Amenity> { amenity1 },
                     OpenTimes = new List<OpenTime> { time0, time1, time2, time3, time4, time5, time6 },
-                    Photos = new List<Photos> { }
+                    HeaderPhoto = headerPh1,
+                    Photos = new List<Photos> { photo1, photo2, photo3 }
                 };
 
 
@@ -201,7 +223,8 @@ namespace AltaCancha.Migrations
                 Courts = new List<Court> { court4, court6 },
                 Amenities = new List<Amenity> {  },
                 OpenTimes = new List<OpenTime> { time01, time11, time21, time31, time41, time51, time61 },
-                Photos = new List<Photos> { }
+                HeaderPhoto = headerPh2,
+                Photos = new List<Photos> { photo4, photo5, photo6 }
             };
 
 
@@ -221,7 +244,8 @@ namespace AltaCancha.Migrations
                 Courts = new List<Court> { court5, court7 },
                 Amenities = new List<Amenity> { amenity2,},
                 OpenTimes = new List<OpenTime> { time02, time12, time22, time32, time42, time52, time62 },
-                Photos = new List<Photos> { }
+                HeaderPhoto = headerPh3,
+                Photos = new List<Photos> { photo7, photo8, photo9 }
             };
 
             var club4 = new Club
@@ -240,7 +264,8 @@ namespace AltaCancha.Migrations
                 Courts = new List<Court> { court8, court9 },
                 Amenities = new List<Amenity> { amenity3 },
                 OpenTimes = new List<OpenTime> { time03, time13, time23, time33, time43, time53, time63 },
-                Photos = new List<Photos> { }
+                HeaderPhoto = headerPh4,
+                Photos = new List<Photos> {  photo10, photo11, photo12}
             };
 
                       

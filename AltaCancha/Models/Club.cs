@@ -20,9 +20,10 @@ namespace AltaCancha.Models
         public string State { get; set; }
         public string Country { get; set; }
         public double Rating { get; set; }
+        public Photos HeaderPhoto { get; set; }
         public virtual List<Photos> Photos { get; set; }
         public virtual List<Court> Courts { get; set; }
-                public virtual List<Amenity> Amenities { get; set; }
+        public virtual List<Amenity> Amenities { get; set; }
         public virtual List<OpenTime> OpenTimes { get; set; }
 
         public virtual double EsMenorQueDosKm(double latitude, double length)
