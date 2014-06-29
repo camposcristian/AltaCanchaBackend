@@ -254,6 +254,27 @@ namespace AltaCancha.Migrations
 
 
 
+            /******* STATE  *********/
+
+            var state1 = new State { Id = 1, Name = "No Pago" };
+            var state2 = new State { Id = 2, Name = "Reservado" };
+            var state3 = new State { Id = 3, Name = "Pago" };
+
+            var state4 = new State { Id = 4, Name = "En espera" };
+            var state5 = new State { Id = 5, Name = "Asistire" };
+            var state6 = new State { Id = 6, Name = "En duda" };
+            var state7 = new State { Id = 7, Name = "No asistire" };
+
+            context.State.AddOrUpdate(
+                p => p.Id,
+                state1,
+                state2,
+                state3,
+                state4,
+                state5,
+                state6,
+                state7
+                );
 
         }
     }
