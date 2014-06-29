@@ -18,51 +18,43 @@ namespace AltaCancha.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET api/Club
-        public IHttpActionResult GetClubs(string name = null)
+        public IHttpActionResult GetClubs(string name = null, double latitude = 100, double longitude = 100, string datetime = null)
         {
-            if(name == null)
-                
-                return Ok(db.Clubs.Include("OpenTimes").Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").ToList());
+            var clubs = db.Clubs.Include("OpenTimes").Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").AsQueryable<Club>();
 
-            var clubs = db.Clubs.Include("OpenTimes").Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").Where(c => c.Name.Contains(name)).ToList();
-
-            if (clubs == null)
+            if (datetime != null)
             {
-                return NotFound();
+                DateTime fechaHora = Convert.ToDateTime(datetime);
+                clubs.Where(p => p.Courts.All(o => o.ScheduledMatches.Any(x => x.Date != fechaHora.Date && x.Hour != fechaHora.Hour))).AsQueryable();
+
             }
 
-            return Ok(clubs);
-        }
+            if (name != null)
+            {
+                clubs = clubs.Where(c => c.Name.Contains(name));
 
-        // GET api/Club
-        public IHttpActionResult GetClubs(double latitude, double length)
-        {
+            }
 
-            var clubs = db.Clubs.Include("OpenTimes").Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").ToList();
-            if (clubs != null)
+            if (latitude != 100 && longitude != 100)
             {
                 var clubsFiltrados = new List<Club>();
 
                 foreach (var cl in clubs)
                 {
-                    if (cl.EsMenorQueDosKm(latitude, length) < 2000)
+                    if (cl.EsMenorQueDosKm(latitude, longitude) < 2000)
                         clubsFiltrados.Add(cl);
                 }
-
-
-
-                if (clubsFiltrados.Count == 0)
-                {
-                    return NotFound();
-                }
-
-                return Ok(clubsFiltrados);
+                clubs = clubsFiltrados.AsQueryable<Club>();
             }
-            return NotFound();
+
+
+            if (clubs == null)
+            {
+                return NotFound();
+            }
+            return Ok(clubs.ToList());
+
         }
-
-
-
         // GET api/Club/5
         [ResponseType(typeof(Club))]
         public IHttpActionResult GetClub(int id)

@@ -14,6 +14,7 @@ namespace AltaCancha.Models
         public FloorType FloorType { get; set; }
         public SizeType Type { get; set; }
         public virtual List<Photos> Photos { get; set; }
+        public virtual List<DateTime> ScheduledMatches { get; set; }
 
     }
 }
