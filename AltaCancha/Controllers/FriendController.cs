@@ -18,34 +18,12 @@ namespace AltaCancha.Controllers
             using (var db = new ApplicationDbContext())
             {
                 ApplicationUser user = db.Users.FirstOrDefault(u => u.Id == User.Identity.GetUserId());
-                var accessToken = user.FbToken;
-                var token = GetExtendedAccessToken(accessToken);
-                var client = new FacebookClient(token);
+                var client = new FacebookClient(user.FbToken);
                 return client.Get("me/friends?fields=picture.type(normal),first_name,birthday,last_name") as IDictionary<string, object>;
             }
 
         }
-        private string GetExtendedAccessToken(string ShortLivedToken)
-        {
-            FacebookClient client = new FacebookClient();
-            string extendedToken = "";
-            try
-            {
-                dynamic result = client.Get("/oauth/access_token", new
-                {
-                    grant_type = "fb_exchange_token",
-                    client_id = "516972428430807",
-                    client_secret = "b3ddcb3388562413d2e8bcd3846c8187",
-                    fb_exchange_token = ShortLivedToken
-                });
-                extendedToken = result.access_token;
-            }
-            catch
-            {
-                extendedToken = ShortLivedToken;
-            }
-            return extendedToken;
-        }
+
 
         // GET: api/Friends/5
         public string Get(int id)

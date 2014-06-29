@@ -24,7 +24,6 @@ namespace AltaCancha.Models
         public virtual List<Photos> Photos { get; set; }
         public virtual List<Court> Courts { get; set; }
         public virtual List<Amenity> Amenities { get; set; }
-        public virtual List<OpenTime> OpenTimes { get; set; }
 
         public virtual double EsMenorQueDosKm(double latitude, double length)
         {

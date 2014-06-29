@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using AltaCancha.Models;
 using AltaCancha.Providers;
 using AltaCancha.Results;
+using Facebook;
 
 namespace AltaCancha.Controllers
 {
@@ -327,6 +328,7 @@ namespace AltaCancha.Controllers
             {
                 return BadRequest(ModelState);
             }
+            var token = GetExtendedAccessToken(model.FbToken);
 
             var user = new ApplicationUser()
             {
@@ -394,6 +396,28 @@ namespace AltaCancha.Controllers
         }
 
         #region Helpers
+
+        private string GetExtendedAccessToken(string ShortLivedToken)
+        {
+            FacebookClient client = new FacebookClient();
+            string extendedToken = "";
+            try
+            {
+                dynamic result = client.Get("/oauth/access_token", new
+                {
+                    grant_type = "fb_exchange_token",
+                    client_id = "516972428430807",
+                    client_secret = "b3ddcb3388562413d2e8bcd3846c8187",
+                    fb_exchange_token = ShortLivedToken
+                });
+                extendedToken = result.access_token;
+            }
+            catch
+            {
+                extendedToken = ShortLivedToken;
+            }
+            return extendedToken;
+        }
 
         private IAuthenticationManager Authentication
         {

@@ -1,6 +1,8 @@
 namespace AltaCancha.Migrations
 {
     using AltaCancha.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -17,25 +19,13 @@ namespace AltaCancha.Migrations
 
         protected override void Seed(AltaCancha.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
-
+            #region Amenities
             /******* AMENITIES  *********/
 
             var amenity1 = new Amenity { Id = 1, Name = "Wifi" };
-            var amenity2 = new Amenity { Id = 2, Name = "Buffete"};
-            var amenity3 = new Amenity { Id = 3, Name = "Vestuarios"};
+            var amenity2 = new Amenity { Id = 2, Name = "Buffete" };
+            var amenity3 = new Amenity { Id = 3, Name = "Vestuarios" };
 
             context.Amenities.AddOrUpdate(
             p => p.Id,
@@ -44,8 +34,9 @@ namespace AltaCancha.Migrations
             amenity3
             );
 
+            #endregion
 
-
+            #region FloorType
             /******* FLOORTYPE  *********/
 
             var floor1 = new FloorType { Id = 1, Name = "Cesped" };
@@ -58,7 +49,9 @@ namespace AltaCancha.Migrations
                 floor2,
                 floor3
                 );
+            #endregion
 
+            #region SizeType
             /******* SIZETYPE  *********/
 
             var size1 = new SizeType { Id = 1, Name = "futbol 5" };
@@ -71,74 +64,9 @@ namespace AltaCancha.Migrations
                 size2,
                 size3
                 );
+            #endregion
 
-            /******* OPENTIME  *********/
-
-            var time0 = new OpenTime { Id = 0, DayOfWeek = "lunes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time1 = new OpenTime { Id = 1, DayOfWeek = "martes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time2 = new OpenTime { Id = 2, DayOfWeek = "miercoles", TimeIn = "8:30", TimeOut = "22:00" };
-            var time3 = new OpenTime { Id = 3, DayOfWeek = "jueves", TimeIn = "8:30", TimeOut = "22:00" };
-            var time4 = new OpenTime { Id = 4, DayOfWeek = "viernes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time5 = new OpenTime { Id = 5, DayOfWeek = "sabado", TimeIn = "10:00", TimeOut = "19:00" };
-            var time6 = new OpenTime { Id = 6, DayOfWeek = "domingo", TimeIn = "8:30", TimeOut = "22:00" };
-
-            var time01 = new OpenTime { Id = 7, DayOfWeek = "lunes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time11 = new OpenTime { Id = 8, DayOfWeek = "martes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time21 = new OpenTime { Id = 9, DayOfWeek = "miercoles", TimeIn = "8:30", TimeOut = "22:00" };
-            var time31 = new OpenTime { Id = 10, DayOfWeek = "jueves", TimeIn = "8:30", TimeOut = "22:00" };
-            var time41 = new OpenTime { Id = 11, DayOfWeek = "viernes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time51 = new OpenTime { Id = 12, DayOfWeek = "sabado", TimeIn = "10:00", TimeOut = "19:00" };
-            var time61 = new OpenTime { Id = 13, DayOfWeek = "domingo", TimeIn = "8:30", TimeOut = "22:00" };
-
-            var time02 = new OpenTime { Id = 14, DayOfWeek = "lunes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time12 = new OpenTime { Id = 15, DayOfWeek = "martes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time22 = new OpenTime { Id = 16, DayOfWeek = "miercoles", TimeIn = "8:30", TimeOut = "22:00" };
-            var time32 = new OpenTime { Id = 17, DayOfWeek = "jueves", TimeIn = "8:30", TimeOut = "22:00" };
-            var time42 = new OpenTime { Id = 18, DayOfWeek = "viernes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time52 = new OpenTime { Id = 19, DayOfWeek = "sabado", TimeIn = "10:00", TimeOut = "19:00" };
-            var time62 = new OpenTime { Id = 20, DayOfWeek = "domingo", TimeIn = "8:30", TimeOut = "22:00" };
-
-            var time03 = new OpenTime { Id = 21, DayOfWeek = "lunes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time13 = new OpenTime { Id = 22, DayOfWeek = "martes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time23 = new OpenTime { Id = 23, DayOfWeek = "miercoles", TimeIn = "8:30", TimeOut = "22:00" };
-            var time33 = new OpenTime { Id = 24, DayOfWeek = "jueves", TimeIn = "8:30", TimeOut = "22:00" };
-            var time43 = new OpenTime { Id = 25, DayOfWeek = "viernes", TimeIn = "8:30", TimeOut = "22:00" };
-            var time53 = new OpenTime { Id = 26, DayOfWeek = "sabado", TimeIn = "10:00", TimeOut = "19:00" };
-            var time63 = new OpenTime { Id = 27, DayOfWeek = "domingo", TimeIn = "8:30", TimeOut = "22:00" };
-
-
-            context.OpenTimes.AddOrUpdate(
-                p => p.Id,
-                time0,
-                time1,
-                time2,
-                time3,
-                time4,
-                time5,
-                time6,
-                time01,
-                time11,
-                time21,
-                time31,
-                time41,
-                time51,
-                time61,
-                time02,
-                time12,
-                time22,
-                time32,
-                time42,
-                time52,
-                time62,
-                time03,
-                time13,
-                time23,
-                time33,
-                time43,
-                time53,
-                time63
-                );
-
+            #region Schedule
             /**** SCHEDULE ***/
 
             var schedule1 = new List<DateTime>();
@@ -153,7 +81,7 @@ namespace AltaCancha.Migrations
 
             var schedule3 = new List<DateTime>();
             schedule3.Add(new DateTime(2014, 6, 30, 15, 0, 0));
-    
+
 
             var schedule4 = new List<DateTime>();
             schedule4.Add(new DateTime(2014, 6, 30, 17, 0, 0));
@@ -171,7 +99,7 @@ namespace AltaCancha.Migrations
             var schedule7 = new List<DateTime>();
             schedule7.Add(new DateTime(2014, 6, 30, 18, 0, 0));
             schedule7.Add(new DateTime(2014, 6, 30, 19, 0, 0));
-   
+
 
             var schedule8 = new List<DateTime>();
             schedule8.Add(new DateTime(2014, 6, 30, 17, 0, 0));
@@ -182,9 +110,17 @@ namespace AltaCancha.Migrations
             schedule9.Add(new DateTime(2014, 6, 30, 20, 0, 0));
             schedule9.Add(new DateTime(2014, 6, 30, 21, 0, 0));
 
+            var schedule10 = new List<DateTime>();
+            schedule10.Add(new DateTime(2014, 6, 30, 16, 0, 0));
+
+            var schedule11 = new List<DateTime>();
+            schedule11.Add(new DateTime(2014, 6, 30, 16, 0, 0));
+            #endregion
+
+            #region Courts
             /******* COURTS  *********/
 
-            var court1 = new Court { Id = 1, Name = "Cancha 1", Description = "Primera Cancha del complejo", Price = 350, FloorType = floor1,ScheduledMatches = schedule1, Type = size1, Photos = new List<Photos> { } };
+            var court1 = new Court { Id = 1, Name = "Cancha 1", Description = "Primera Cancha del complejo", Price = 350, FloorType = floor1, ScheduledMatches = schedule1, Type = size1, Photos = new List<Photos> { } };
             var court2 = new Court { Id = 2, Name = "Cancha 2", Description = "Segunda Cancha del complejo", Price = 400, FloorType = floor2, ScheduledMatches = schedule2, Type = size2, Photos = new List<Photos> { } };
             var court3 = new Court { Id = 3, Name = "Cancha Swing", Description = "Buena cancha para f5", Price = 450, FloorType = floor3, ScheduledMatches = schedule3, Type = size1, Photos = new List<Photos> { } };
             var court4 = new Court { Id = 4, Name = "Cancha Grande", Description = "Otra cancha para f5", Price = 400, FloorType = floor3, ScheduledMatches = schedule4, Type = size1, Photos = new List<Photos> { } };
@@ -193,6 +129,9 @@ namespace AltaCancha.Migrations
             var court7 = new Court { Id = 7, Name = "Cancha 2", Description = "Segunda Cancha", Price = 450, FloorType = floor2, ScheduledMatches = schedule7, Type = size1, Photos = new List<Photos> { } };
             var court8 = new Court { Id = 8, Name = "Cancha 3", Description = "Tercera Cancha", Price = 400, FloorType = floor1, ScheduledMatches = schedule8, Type = size1, Photos = new List<Photos> { } };
             var court9 = new Court { Id = 9, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule9, Type = size2, Photos = new List<Photos> { } };
+            var court10 = new Court { Id = 10, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule10, Type = size3, Photos = new List<Photos> { } };
+            var court11 = new Court { Id = 11, Name = "Cancha 2", Description = "La mejor Cancha", Price = 500, FloorType = floor1, ScheduledMatches = schedule11, Type = size1, Photos = new List<Photos> { } };
+
 
             context.Courts.AddOrUpdate(
                 p => p.Id,
@@ -204,15 +143,22 @@ namespace AltaCancha.Migrations
                 court6,
                 court7,
                 court8,
-                court9
+                court9,
+                court10,
+                court11
                 );
 
+            #endregion
 
+            #region Photos
             /***** PHOTOS *****/
             var headerPh1 = new Photos { Id = 1, Src = "http://i.imgur.com/ifFj23S.jpg", Description = "Header Photo from Serrano Corner" };
             var headerPh2 = new Photos { Id = 2, Src = "http://i.imgur.com/vvlqJg0.jpg", Description = "Header Photo from Bethania" };
             var headerPh3 = new Photos { Id = 3, Src = "http://i.imgur.com/xdk0cbw.jpg", Description = "Header Photo from Madero" };
             var headerPh4 = new Photos { Id = 4, Src = "http://i.imgur.com/rb2wxcR.jpg", Description = "Header Photo from Barracas" };
+            var headerPh5 = new Photos { Id = 21, Src = "http://i.imgur.com/KEXs782.jpg", Description = "Header Photo from Liniers" };
+            var headerPh6 = new Photos { Id = 22, Src = "http://i.imgur.com/csXtXgD.jpg", Description = "Header Photo from Medrano" };
+            
 
             var photo1 = new Photos { Id = 5, Src = "http://i.imgur.com/rG0ffMj.jpg", Description = "Photo 5" };
             var photo2 = new Photos { Id = 6, Src = "http://i.imgur.com/9wLLibs.jpg", Description = "Photo 6" };
@@ -226,8 +172,14 @@ namespace AltaCancha.Migrations
             var photo10 = new Photos { Id = 14, Src = "http://i.imgur.com/CGb1Nx9.jpg", Description = "Photo 14" };
             var photo11 = new Photos { Id = 15, Src = "http://i.imgur.com/8dDTh6H.jpg", Description = "Photo 15" };
             var photo12 = new Photos { Id = 16, Src = "http://i.imgur.com/mxqZTW1.jpg", Description = "Photo 16" };
+            var photo13 = new Photos { Id = 17, Src = "http://i.imgur.com/ws2AbJs.jpg", Description = "Photo 17" };
+            var photo14 = new Photos { Id = 18, Src = "http://i.imgur.com/hcnkBNL.jpg", Description = "Photo 18" };
+            var photo15 = new Photos { Id = 19, Src = "http://i.imgur.com/wMtbPzt.jpg", Description = "Photo 19" };
+            var photo16 = new Photos { Id = 20, Src = "http://i.imgur.com/rG0ffMj.jpg", Description = "Photo 20" };
 
+            #endregion
 
+            #region Clubs
             /******* CLUBS  *********/
             var club1 = new Club
                 {
@@ -244,7 +196,6 @@ namespace AltaCancha.Migrations
                     Rating = 3.8,
                     Courts = new List<Court> { court1, court2, court3 },
                     Amenities = new List<Amenity> { amenity1 },
-                    OpenTimes = new List<OpenTime> { time0, time1, time2, time3, time4, time5, time6 },
                     HeaderPhoto = headerPh1,
                     Photos = new List<Photos> { photo1, photo2, photo3 }
                 };
@@ -264,8 +215,7 @@ namespace AltaCancha.Migrations
                 Country = "Argentina",
                 Rating = 4.2,
                 Courts = new List<Court> { court4, court6 },
-                Amenities = new List<Amenity> {  },
-                OpenTimes = new List<OpenTime> { time01, time11, time21, time31, time41, time51, time61 },
+                Amenities = new List<Amenity> { },
                 HeaderPhoto = headerPh2,
                 Photos = new List<Photos> { photo4, photo5, photo6 }
             };
@@ -285,8 +235,7 @@ namespace AltaCancha.Migrations
                 Country = "Argentina",
                 Rating = 5,
                 Courts = new List<Court> { court5, court7 },
-                Amenities = new List<Amenity> { amenity2,},
-                OpenTimes = new List<OpenTime> { time02, time12, time22, time32, time42, time52, time62 },
+                Amenities = new List<Amenity> { amenity2, },
                 HeaderPhoto = headerPh3,
                 Photos = new List<Photos> { photo7, photo8, photo9 }
             };
@@ -306,21 +255,61 @@ namespace AltaCancha.Migrations
                 Rating = 2.1,
                 Courts = new List<Court> { court8, court9 },
                 Amenities = new List<Amenity> { amenity3 },
-                OpenTimes = new List<OpenTime> { time03, time13, time23, time33, time43, time53, time63 },
                 HeaderPhoto = headerPh4,
-                Photos = new List<Photos> {  photo10, photo11, photo12}
+                Photos = new List<Photos> { photo10, photo11, photo12 }
             };
 
-                      
+            var club5 = new Club
+            {
+                Id = 5,
+                Name = "Open Liniers",
+                Address = "Medrano 241",
+                Phone = "4862-9392/ 9386/ 4865-4057",
+                Email = "",
+                Latitude = -34.775133,
+                Length = -58.476949,
+                Zone = "Liniers",
+                State = "Ciudad Autonoma de Buenos Aires",
+                Country = "Argentina",
+                Rating = 2.5,
+                Courts = new List<Court> { court10 },
+                Amenities = new List<Amenity> { },
+                HeaderPhoto = headerPh5,
+                Photos = new List<Photos> { photo13, photo14 }
+            };
+
+
+            var club6 = new Club
+            {
+                Id = 6,
+                Name = "Club BPN",
+                Address = "Malabia 241",
+                Phone = "4862-9392/ 9386/ 4865-4057",
+                Email = "",
+                Latitude = -34.775133,
+                Length = -58.476949,
+                Zone = "Liniers",
+                State = "Ciudad Autonoma de Buenos Aires",
+                Country = "Argentina",
+                Rating = 3.5,
+                Courts = new List<Court> { court11},
+                Amenities = new List<Amenity> { },
+                HeaderPhoto = headerPh6,
+                Photos = new List<Photos> { photo15, photo16 }
+            };
+
             context.Clubs.AddOrUpdate(
                p => p.Id,
                club1,
                club2,
                club3,
-               club4
+               club4,
+               club5,
+               club6
                );
+            #endregion
 
-
+            #region State
 
             /******* STATE  *********/
 
@@ -343,6 +332,40 @@ namespace AltaCancha.Migrations
                 state6,
                 state7
                 );
+            #endregion
+
+            #region Users
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+
+            //Create User Test
+            UserManager.Create(new ApplicationUser()
+            {
+                UserName = "admin@admin.com",
+                FbId = "123456",
+                FbToken = "123456",
+                GameStyle = "El mago",
+                CreateDate = DateTime.Now,
+                Position = "9"
+            });
+
+            UserManager.Create(new ApplicationUser()
+            {
+                UserName = "admin1@admin.com",
+                FbId = "1234567",
+                FbToken = "1234567",
+                GameStyle = "El mago",
+                CreateDate = DateTime.Now,
+                Position = "9"
+            });
+
+
+            //Create User=Admin with password=123456
+            var user = new ApplicationUser();
+            var adminresult = UserManager.Create(user, "123456");
+
+            base.Seed(context);
+            #endregion
 
         }
     }

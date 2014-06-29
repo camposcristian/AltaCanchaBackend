@@ -49,7 +49,6 @@ namespace AltaCancha.Models
         public DbSet<Amenity> Amenities { get; set; }
         public DbSet<FloorType> FloorTypes { get; set; }
         public DbSet<SizeType> Type { get; set; }
-        public DbSet<OpenTime> OpenTimes { get; set; }
         public DbSet<State> State { get; set; }
         public DbSet<Match> Match { get; set; }
 

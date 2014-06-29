@@ -226,8 +226,7 @@
     <Compile Include="Controllers\ClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
-	<Compile Include="Controllers\PayController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,7 +241,7 @@
     <Compile Include="Models\FloorType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Match.cs" />
-    <Compile Include="Models\OpenTime.cs" />
+    <Compile Include="Models\PayModel.cs" />
     <Compile Include="Models\Photos.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\SizeType.cs" />
@@ -280,6 +279,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\AltaCancha - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\AltaCancha - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AltaCancha.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -318,6 +319,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitPay\BitPay\BitPay.csproj">
+      <Project>{d88a49c3-0280-4320-b120-ae519b2db219}</Project>
+      <Name>BitPay</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
