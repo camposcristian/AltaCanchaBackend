@@ -331,6 +331,7 @@ namespace AltaCancha.Controllers
             var user = new ApplicationUser()
             {
                 UserName = model.Email,
+                Matches = new List<Match>(),
                 Email = model.Email,
                 FbId = model.FbId,
                 FbToken = model.FbToken,

@@ -16,6 +16,11 @@ namespace AltaCancha.Models
         public virtual List<Photos> Photos { get; set; }
         public virtual List<DateTime> ScheduledMatches { get; set; }
 
+        public Court()
+        {
+            ScheduledMatches = new List<DateTime>();
+        }
     }
+
 }
 

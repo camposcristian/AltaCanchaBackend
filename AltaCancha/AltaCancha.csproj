@@ -234,6 +234,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Amenity.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\BookingMatchModel.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\Court.cs" />
     <Compile Include="Models\FloorType.cs" />

@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AltaCancha.Models
 {
@@ -15,9 +16,19 @@ namespace AltaCancha.Models
         public string FbId { get; set; }
         public string FbToken { get; set; }
         public List<Match> Matches { get; set; }
+        [Column(TypeName = "DateTime2")]
         public DateTime CreateDate { get; set; }
+        public string Position { get; set; }
+        public string GameStyle { get; set; }
+        [Column(TypeName = "DateTime2")]
         public  DateTime ModDate{ get; set; }
         public bool isActive { get; set; }
+        public ApplicationUser()
+        {
+            CreateDate = DateTime.Now;
+            ModDate = DateTime.Now;
+            Matches = new List<Match>();
+        }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
