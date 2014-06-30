@@ -80,14 +80,15 @@ namespace AltaCancha.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!User.Identity.IsAuthenticated)
-            {
-                return StatusCode(HttpStatusCode.Unauthorized);
-            }
+
 
             var players = new List<Player>();
             var selfUser = db.Users.Find(User.Identity.GetUserId());
 
+            if (selfUser == null)
+            {
+                return StatusCode(HttpStatusCode.Unauthorized);
+            }
             players.Add(new Player { State = db.State.Find(5), User = selfUser });
 
 
@@ -145,7 +146,7 @@ namespace AltaCancha.Controllers
 
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = newBook.Id }, newBook);
+            return Ok(db.Bookings.Find(newBook.Id));
         }
 
         // DELETE api/Booking/5

@@ -19,7 +19,9 @@ namespace AltaCancha
             var cors = new EnableCorsAttribute("http://altacancha.azurewebsites.net", "*", "*");
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-           
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+= Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

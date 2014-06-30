@@ -20,7 +20,7 @@ namespace AltaCancha.Controllers
         // GET api/Club
         public IHttpActionResult GetClubs(string name = null, double latitude = 100, double longitude = 100, string datetime = null)
         {
-            var clubs = db.Clubs.Include("OpenTimes").Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").Include("HeaderPhoto").AsQueryable<Club>();
+            var clubs = db.Clubs.Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").Include("HeaderPhoto").AsQueryable<Club>();
 
             if (datetime != null)
             {
@@ -59,7 +59,9 @@ namespace AltaCancha.Controllers
         [ResponseType(typeof(Club))]
         public IHttpActionResult GetClub(int id)
         {
-            Club club = db.Clubs.Find(id);
+            //var club = db.Clubs.Find(id);
+
+            var club = db.Clubs.Include("Amenities").Include("Courts.FloorType").Include("Courts.Type").Include("Photos").Include("HeaderPhoto").FirstOrDefault(p => p.Id == id);
             if (club == null)
             {
                 return NotFound();

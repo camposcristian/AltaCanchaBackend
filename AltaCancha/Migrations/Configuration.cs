@@ -117,38 +117,7 @@ namespace AltaCancha.Migrations
             schedule11.Add(new DateTime(2014, 6, 30, 16, 0, 0));
             #endregion
 
-            #region Courts
-            /******* COURTS  *********/
 
-            var court1 = new Court { Id = 1, Name = "Cancha 1", Description = "Primera Cancha del complejo", Price = 350, FloorType = floor1, ScheduledMatches = schedule1, Type = size1, Photos = new List<Photos> { } };
-            var court2 = new Court { Id = 2, Name = "Cancha 2", Description = "Segunda Cancha del complejo", Price = 400, FloorType = floor2, ScheduledMatches = schedule2, Type = size2, Photos = new List<Photos> { } };
-            var court3 = new Court { Id = 3, Name = "Cancha Swing", Description = "Buena cancha para f5", Price = 450, FloorType = floor3, ScheduledMatches = schedule3, Type = size1, Photos = new List<Photos> { } };
-            var court4 = new Court { Id = 4, Name = "Cancha Grande", Description = "Otra cancha para f5", Price = 400, FloorType = floor3, ScheduledMatches = schedule4, Type = size1, Photos = new List<Photos> { } };
-            var court5 = new Court { Id = 5, Name = "Cancha para 11", Description = "Cancha profesional", Price = 1000, FloorType = floor1, ScheduledMatches = schedule5, Type = size3, Photos = new List<Photos> { } };
-            var court6 = new Court { Id = 6, Name = "Cancha 1", Description = "Primera Cancha", Price = 500, FloorType = floor2, ScheduledMatches = schedule6, Type = size2, Photos = new List<Photos> { } };
-            var court7 = new Court { Id = 7, Name = "Cancha 2", Description = "Segunda Cancha", Price = 450, FloorType = floor2, ScheduledMatches = schedule7, Type = size1, Photos = new List<Photos> { } };
-            var court8 = new Court { Id = 8, Name = "Cancha 3", Description = "Tercera Cancha", Price = 400, FloorType = floor1, ScheduledMatches = schedule8, Type = size1, Photos = new List<Photos> { } };
-            var court9 = new Court { Id = 9, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule9, Type = size2, Photos = new List<Photos> { } };
-            var court10 = new Court { Id = 10, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule10, Type = size3, Photos = new List<Photos> { } };
-            var court11 = new Court { Id = 11, Name = "Cancha 2", Description = "La mejor Cancha", Price = 500, FloorType = floor1, ScheduledMatches = schedule11, Type = size1, Photos = new List<Photos> { } };
-
-
-            context.Courts.AddOrUpdate(
-                p => p.Id,
-                court1,
-                court2,
-                court3,
-                court4,
-                court5,
-                court6,
-                court7,
-                court8,
-                court9,
-                court10,
-                court11
-                );
-
-            #endregion
 
             #region Photos
             /***** PHOTOS *****/
@@ -158,6 +127,18 @@ namespace AltaCancha.Migrations
             var headerPh4 = new Photos { Id = 4, Src = "http://i.imgur.com/rb2wxcR.jpg", Description = "Header Photo from Barracas" };
             var headerPh5 = new Photos { Id = 21, Src = "http://i.imgur.com/KEXs782.jpg", Description = "Header Photo from Liniers" };
             var headerPh6 = new Photos { Id = 22, Src = "http://i.imgur.com/csXtXgD.jpg", Description = "Header Photo from Medrano" };
+
+            var headerPh11 = new Photos { Id = 23, Src = "http://i.imgur.com/ifFj23S.jpg", Description = "Header Photo from Serrano Corner" };
+            var headerPh21 = new Photos { Id = 24, Src = "http://i.imgur.com/ifFj23S.jpg", Description = "Header Photo from Bethania" };
+            var headerPh31 = new Photos { Id = 25, Src = "http://i.imgur.com/ifFj23S.jpg", Description = "Header Photo from Madero" };
+            var headerPh41 = new Photos { Id = 26, Src = "http://i.imgur.com/vvlqJg0.jpg", Description = "Header Photo from Barracas" };
+            var headerPh51 = new Photos { Id = 27, Src = "http://i.imgur.com/vvlqJg0.jpg", Description = "Header Photo from Liniers" };
+            var headerPh61 = new Photos { Id = 28, Src = "http://i.imgur.com/xdk0cbw.jpg", Description = "Header Photo from Medrano" };
+            var headerPh71 = new Photos { Id = 29, Src = "http://i.imgur.com/xdk0cbw.jpg", Description = "Header Photo from Medrano" };
+            var headerPh81 = new Photos { Id = 30, Src = "http://i.imgur.com/rb2wxcR.jpg", Description = "Header Photo from Medrano" };
+            var headerPh91 = new Photos { Id = 31, Src = "http://i.imgur.com/rb2wxcR.jpg", Description = "Header Photo from Medrano" };
+            var headerPh92 = new Photos { Id = 32, Src = "http://i.imgur.com/KEXs782.jpg", Description = "Header Photo from Medrano" };
+            var headerPh93 = new Photos { Id = 33, Src = "http://i.imgur.com/csXtXgD.jpg", Description = "Header Photo from Medrano" };
             
 
             var photo1 = new Photos { Id = 5, Src = "http://i.imgur.com/rG0ffMj.jpg", Description = "Photo 5" };
@@ -178,6 +159,41 @@ namespace AltaCancha.Migrations
             var photo16 = new Photos { Id = 20, Src = "http://i.imgur.com/rG0ffMj.jpg", Description = "Photo 20" };
 
             #endregion
+
+
+            #region Courts
+            /******* COURTS  *********/
+
+            var court1 = new Court { Id = 1, Name = "Cancha 1", Description = "Primera Cancha del complejo", Price = 350, FloorType = floor1, ScheduledMatches = schedule1, Type = size1, Photos = new List<Photos> { headerPh11 } };
+            var court2 = new Court { Id = 2, Name = "Cancha 2", Description = "Segunda Cancha del complejo", Price = 400, FloorType = floor2, ScheduledMatches = schedule2, Type = size2, Photos = new List<Photos> { headerPh21 } };
+            var court3 = new Court { Id = 3, Name = "Cancha Swing", Description = "Buena cancha para f5", Price = 450, FloorType = floor3, ScheduledMatches = schedule3, Type = size1, Photos = new List<Photos> { headerPh31 } };
+            var court4 = new Court { Id = 4, Name = "Cancha Grande", Description = "Otra cancha para f5", Price = 400, FloorType = floor3, ScheduledMatches = schedule4, Type = size1, Photos = new List<Photos> { headerPh41} };
+            var court5 = new Court { Id = 5, Name = "Cancha para 11", Description = "Cancha profesional", Price = 1000, FloorType = floor1, ScheduledMatches = schedule5, Type = size3, Photos = new List<Photos> { headerPh61 } };
+            var court6 = new Court { Id = 6, Name = "Cancha 1", Description = "Primera Cancha", Price = 500, FloorType = floor2, ScheduledMatches = schedule6, Type = size2, Photos = new List<Photos> { headerPh51 } };
+            var court7 = new Court { Id = 7, Name = "Cancha 2", Description = "Segunda Cancha", Price = 450, FloorType = floor2, ScheduledMatches = schedule7, Type = size1, Photos = new List<Photos> { headerPh71 } };
+            var court8 = new Court { Id = 8, Name = "Cancha 3", Description = "Tercera Cancha", Price = 400, FloorType = floor1, ScheduledMatches = schedule8, Type = size1, Photos = new List<Photos> { headerPh81 } };
+            var court9 = new Court { Id = 9, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule9, Type = size2, Photos = new List<Photos> { headerPh91 } };
+            var court10 = new Court { Id = 10, Name = "Cancha 1", Description = "La mejor Cancha", Price = 450, FloorType = floor3, ScheduledMatches = schedule10, Type = size3, Photos = new List<Photos> { headerPh92 } };
+            var court11 = new Court { Id = 11, Name = "Cancha 2", Description = "La mejor Cancha", Price = 500, FloorType = floor1, ScheduledMatches = schedule11, Type = size1, Photos = new List<Photos> { headerPh93 } };
+
+
+            context.Courts.AddOrUpdate(
+                p => p.Id,
+                court1,
+                court2,
+                court3,
+                court4,
+                court5,
+                court6,
+                court7,
+                court8,
+                court9,
+                court10,
+                court11
+                );
+
+            #endregion
+
 
             #region Clubs
             /******* CLUBS  *********/
@@ -347,7 +363,7 @@ namespace AltaCancha.Migrations
                 GameStyle = "El mago",
                 CreateDate = DateTime.Now,
                 Position = "9"
-            });
+            },"123456");
 
             UserManager.Create(new ApplicationUser()
             {
@@ -357,7 +373,7 @@ namespace AltaCancha.Migrations
                 GameStyle = "El mago",
                 CreateDate = DateTime.Now,
                 Position = "9"
-            });
+            },"123456");
 
 
             //Create User=Admin with password=123456

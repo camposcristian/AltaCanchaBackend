@@ -19,19 +19,19 @@ namespace AltaCancha.Controllers
         [ResponseType(typeof(Invoice))]
         public IHttpActionResult Post(PayModel payModel)
         {
-            if (!User.Identity.IsAuthenticated)
+            using (var db = new ApplicationDbContext())
             {
-                return StatusCode(HttpStatusCode.Unauthorized);
-            }
+                var selfUser = db.Users.Find(User.Identity.GetUserId());
+                var booking = db.Bookings.Include("Match.Court").FirstOrDefault(p=>p.Id==payModel.BookId);
 
-            else
-            {
-                using (var db = new ApplicationDbContext())
+                if (selfUser == null || selfUser.Id != booking.User.Id)
                 {
-                    double price = Convert.ToInt32(db.Bookings.Find(payModel.BookId).Match.Court.Price);
-                    BitPay bp = new BitPay("RIlRZwnapjwEcBcKrB6b631V3GTRCZ2yKpRtUOg6OPc");
-                    return Ok(bp.createInvoice(price, "ARS"));
+                    return StatusCode(HttpStatusCode.Unauthorized);
                 }
+
+                double price = Convert.ToInt32(booking.Match.Court.Price);
+                BitPay bp = new BitPay("RIlRZwnapjwEcBcKrB6b631V3GTRCZ2yKpRtUOg6OPc");
+                return Ok(bp.createInvoice(price, "ARS"));
             }
 
 

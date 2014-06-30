@@ -50,12 +50,13 @@ namespace AltaCancha.Models
         public DbSet<FloorType> FloorTypes { get; set; }
         public DbSet<SizeType> Type { get; set; }
         public DbSet<State> State { get; set; }
+        public DbSet<Player> Player { get; set; }
         public DbSet<Match> Match { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            //Configuration.LazyLoadingEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public static ApplicationDbContext Create()
@@ -65,7 +66,7 @@ namespace AltaCancha.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<ApplicationUser>().HasMany(t => t.Matches);
+            modelBuilder.Entity<ApplicationUser>().HasMany(t => t.Matches).WithMany().Map(conf => conf.MapRightKey("UserId"));
             //modelBuilder.Entity<Match>().HasMany(t => t.Players);
             base.OnModelCreating(modelBuilder);
 

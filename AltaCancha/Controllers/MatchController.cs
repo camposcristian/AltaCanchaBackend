@@ -18,9 +18,12 @@ namespace AltaCancha.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET api/Match
-        public IQueryable<Match> GetMatch()
+        public List<Match> GetMatch()
         {
-            return db.Match.Where(a => a.Players.Any(p => p.User.Id == User.Identity.GetUserId())).OrderByDescending(p => p.DateTimeIn);
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            List<Match> matches = db.Match.Include("Players.State").Include("Court.Photos").Where(a => a.Players.Any(p => p.User.Id == currentUser.Id)).OrderByDescending(p => p.DateTimeIn).ToList();
+            return matches;
         }
 
         //// GET api/Match/5
@@ -45,7 +48,7 @@ namespace AltaCancha.Controllers
             }
 
             var newState = db.State.FirstOrDefault(x => x.Name == state);
-            var match = db.Match.Find(idMatch);
+            var match = db.Match.Include("Players.User").FirstOrDefault(p => p.Id == idMatch);
 
             if (match == null)
                 return NotFound();
@@ -64,20 +67,31 @@ namespace AltaCancha.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        //// POST api/Match
-        //[ResponseType(typeof(Match))]
-        //public IHttpActionResult PostMatch(Match match)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        // POST api/Match
+        [ResponseType(typeof(Match))]
+        public IHttpActionResult PostMatch(List<string> FbIds, int MatchId )
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    db.Match.Add(match);
-        //    db.SaveChanges();
+            var state = db.State.Find(4);
+            var match = db.Match.Find(MatchId);
 
-        //    return CreatedAtRoute("DefaultApi", new { id = match.Id }, match);
-        //}
+            foreach(var fbId in FbIds)
+            {
+                var usr = db.Users.FirstOrDefault(p => p.FbId == fbId);
+                if(usr != null)
+                {
+                    match.Players.Add(new Player { User = usr, State = state });
+                }
+            }
+            
+            db.SaveChanges();
+
+            return Ok();
+        }
 
         //// DELETE api/Match/5
         //[ResponseType(typeof(Match))]
